@@ -39,23 +39,32 @@
 // Розшир функціонал застосунку таким чином, щоб блок статистики рендерився тільки після того, як було зібрано хоча б один відгук. Повідомлення про відсутність статистики винеси в компонент <Notification message="There is no feedback">.
 
 // component preview
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { Component } from 'react';
+import { Feedback } from './Feedback/Feedback';
 
-export const App = () => {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
-      React homework template
-      <Feedback />
-    </div>
-  );
-};
+export class App extends Component {
+  state = {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  };
+
+  handleAddFeedback = option => {
+    this.setState(prevState => {
+      return {
+        [option]: prevState[option] + 1,
+      };
+    });
+  };
+
+  render() {
+    return (
+      <div style={{ marginLeft: 'auto', width: '400px' }}>
+        <Feedback
+          options={Object.keys(this.state)}
+          onLeaveFeedback={this.handleAddFeedback}
+        />
+      </div>
+    );
+  }
+}

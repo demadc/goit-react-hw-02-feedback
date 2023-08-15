@@ -1,52 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Wrapper, Title, List, Btn } from './Feedback.styled';
 
-export default Feedback;
-class Feedback extends Component {
-  state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
-  };
+export const Feedback = ({ options, onLeaveFeedback }) => {
+  return (
+    <Wrapper>
+      <Title>Please leave feedback</Title>
+      <List>
+        {options.map((option, index) => (
+          <Btn key={index} onClick={() => onLeaveFeedback(option)}>
+            {option}
+          </Btn>
+        ))}
+      </List>
+    </Wrapper>
+  );
+};
 
-  handleAddGoodComment = () => {
-    this.setState(prevState => {
-      return {
-        good: prevState.value + 1,
-      };
-    });
-  };
-  handleAddNeutralComment = () => {
-    this.setState(prevState => {
-      return {
-        neutral: prevState.value + 1,
-      };
-    });
-  };
-  handleAddBadComment = () => {
-    this.setState(prevState => {
-      return {
-        bad: prevState.value + 1,
-      };
-    });
-  };
-
-  render() {
-    return;
-    <div>
-      <h2>Please leave feedback</h2>
-      <div>
-        <button type="button" onClick={this.handleAddGoodComment}>
-          Good
-        </button>
-        <button type="button" onClick={this.handleAddNeutralComment}>
-          Neutural
-        </button>
-        <button type="button" onClick={this.handleAddBadComment}>
-          Bad
-        </button>
-      </div>
-    </div>;
-  }
-}
+Feedback.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
+};
