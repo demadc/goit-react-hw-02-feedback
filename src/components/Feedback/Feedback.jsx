@@ -4,7 +4,7 @@ import { Wrapper, Title, List, Btn } from './Feedback.styled';
 export const Feedback = ({ options, onLeaveFeedback }) => {
   return (
     <Wrapper>
-      <Title>Please leave feedback</Title>
+      {/* <Title>Please leave feedback</Title> */}
       <List>
         {options.map((option, index) => (
           <Btn key={index} onClick={() => onLeaveFeedback(option)}>
