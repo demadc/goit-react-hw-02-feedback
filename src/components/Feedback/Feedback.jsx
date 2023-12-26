@@ -1,5 +1,6 @@
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Wrapper, List, Btn } from './Feedback.styled';
+import { Wrapper, List, Btn, IconWrapper } from './Feedback.styled';
 import { Icons } from './Icons';
 
 export const Feedback = ({ options, onLeaveFeedback }) => {
@@ -7,11 +8,8 @@ export const Feedback = ({ options, onLeaveFeedback }) => {
     <Wrapper>
       <List>
         {options.map((option, index) => (
-          <Btn
-            key={index}
-            icon={Icons[option]}
-            onClick={() => onLeaveFeedback(option)}
-          >
+          <Btn key={index} onClick={() => onLeaveFeedback(option)}>
+            <IconWrapper>{React.createElement(Icons[option])}</IconWrapper>
             {option}
           </Btn>
         ))}

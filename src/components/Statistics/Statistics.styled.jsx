@@ -35,12 +35,43 @@ export const DescrStatistics = styled.p`
   }
 `;
 
-export const Good = styled.li``;
+export const Good = styled.p`
+  display: inline-flex;
+  margin: 0 auto;
+  padding: 4px 14px;
+`;
 
-export const Neutral = styled.li``;
+export const Neutral = styled.p`
+  display: inline-flex;
+  margin: 0 auto;
+  padding: 4px 10px;
+`;
 
-export const Bad = styled.li``;
+export const Bad = styled.p`
+  display: inline-flex;
+  margin: 0 auto;
+  padding: 4px 18px;
+`;
 
-export const Total = styled.p``;
+export const Total = styled.p`
+  display: flex;
+  align-items: center;
 
-export const Percentage = styled.p``;
+  margin-top: 22px;
+  margin-bottom: 12px;
+
+  color: ${p => p.theme.colors.blue};
+  font-size: large;
+  font-weight: 400;
+`;
+
+export const Percentage = styled.p`
+  display: flex;
+  align-items: center;
+
+  margin-top: 4px;
+
+  color: ${p => p.theme.colors.blue};
+  font-size: large;
+  font-weight: 400;
+`;

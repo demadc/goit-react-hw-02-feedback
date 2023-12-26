@@ -51,3 +51,7 @@ export const Btn = styled.button`
     }
   }
 `;
+
+export const IconWrapper = styled.div``;
+
+export const Icons = styled.div``;
